@@ -1,0 +1,25 @@
+data: 
+  raw_path: "data/raw/HEAD-NECK-RADIOMICS-HN1_Clinical_data_updated_July_2020.csv"
+
+  #Feature Groups
+  columns: 
+    numeric_features:
+    - "age_at_diagnoses"
+    - "pretreat_hb_in_mmolperlitre"
+    - "radiotherapy_total_treat_time"
+    - "radiotherapy_refgydose_total_highriskgtv"
+    - "radiotherapy_refgydose_perfraction_highriskgtv"
+    - "radiotherapy_number_fractions_highriskgtv"
+
+    ordinal_features:
+      clin_t: [1,2,3,4]
+      clin_n: [0,1,2,3]
+      clin_m: [0,1]
+      performance_status_ecog: [0,1,2,3,4,5]
+      ajcc_stage: ["i", "ii", "iii", "iva", "ivb", "ivc"]
+    
+    norminal_features:
+      - "index_tumor_location" #larnyx | oropharynx
+      - "biological_sex"       
+      - "overall_surgery_performed" #positive|negative(missing = not tested)
+      - "chemotherapy_given" #concurrent | conmitant |none
