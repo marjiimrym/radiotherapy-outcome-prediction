@@ -17,3 +17,12 @@
 | **chemotherapy_given** | Categorical factor of 3 levels (1-0) | Binary variable denoting if chemotherapy was performed as part of the treatment. "Concurrent" or "concomitant" $=1$ & "none" $=0$. |
 | **radiotherapy_total_treat_time** | Numerical | The physical prescribed radiation dose per fraction to the total tumor. |
 | **radiotherapy_refgydose_perfraction_highriskgtv** | Numerical | The physical prescribed radiation dose to the gross tumor. |
+| **radiotherapy_refgydose_total_highriskgtv** | Numerical | The total physical prescribed radiation dose to the total tumor (all high-risk target volumes in units of Gray) |
+| **radiotherapy_number_fractions_highriskgtv** | Numerical | The total number of prescribed delivery fractions to the entire tumor.
+| **event_overrall_survival**| Categorical factor of 0 or 1 | The binary variable denoting if the patient survived the therapy, hence if they survived then the survival analysis would be 0 or if they are deceased then 1. |
+| **overall_survival_in_days** | numerical | The interval between the first fraction of radiotherapy to the date of the last audit if they are alive, or the date of death. |
+
+
+
+
+
