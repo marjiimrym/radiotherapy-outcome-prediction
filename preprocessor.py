@@ -30,4 +30,26 @@ class Preprocessor:
         encoded = encoded.reindex(columns = self.fitted_columns, fill_value = 0)
         encoded[numeric_columns] = self.scaler.transform(encoded(numeric_columns))
         return encoded
+
+def _encode(self, df: pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+
+    df[numeric_columns] = df[numeric_columns].fillna(self.numeric_medians)
+    for col in categorical_columns:
+        df[col] = df[col].fillna("unknown")
+
+    # Encode AJCC stages
+    stage_mapping = {
+        stage: i for i, stage in enumerate(AJCC_STAGE_ORDER)
+    }
+    df["ajcc_stage"] = df["ajcc_stage"].map(stage_mapping).fillna(-1)
+    df = pd.get_dummies(
+        df,
+        columns= categorical_columns,
+        drop_first=True
+    )
+    dummy_columns = df.select_dtypes(include="bool").columns
+    df[dummy_columns] = df[dummy_columns].astype(int)
+    return df
+
         
