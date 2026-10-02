@@ -30,4 +30,10 @@ class SurvivalModelTrainer:
         self.rsf_model.fit(train_df[self.feature_columns], y)
         return self
 
+    def predict_risk_cox(self, df: pd.DataFrame):
+        return self.cox_model.predict_partial_hazard(df).to_numpy()
+
+    def predict_risk_rsk(self, df: pdf.DataFrame):
+        return self.rsk_model.predict(df[self.feature_columns])
+
 
